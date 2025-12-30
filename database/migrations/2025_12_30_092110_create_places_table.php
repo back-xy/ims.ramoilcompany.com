@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\City;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->json('social_apps')->nullable();
             $table->boolean('is_customer')->default(false);
             $table->unsignedTinyInteger('activity_percentage')->default(0);
-            // $table->string('city')->nullable();
+            $table->foreignIdFor(City::class)->nullable()->constrained()->restrictOnDelete();
             $table->text('address')->nullable();
             $table->string('gps')->nullable();
             $table->string('image')->nullable();

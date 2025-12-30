@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('1111'),
         ]);
 
-        $this->call(PlaceSeeder::class);
+        $this->call([
+            CitySeeder::class,
+            PlaceSeeder::class,
+        ]);
     }
 }
