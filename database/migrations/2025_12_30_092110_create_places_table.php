@@ -23,7 +23,7 @@ return new class extends Migration
             $table->json('social_apps')->nullable();
             $table->boolean('is_customer')->default(false);
             $table->unsignedTinyInteger('activity_percentage')->default(0);
-            $table->foreignIdFor(City::class)->nullable()->constrained()->restrictOnDelete();
+            $table->foreignIdFor(City::class)->constrained()->restrictOnDelete();
             $table->text('address')->nullable();
             $table->string('gps')->nullable();
             $table->string('image')->nullable();
