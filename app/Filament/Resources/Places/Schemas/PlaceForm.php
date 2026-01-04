@@ -19,32 +19,32 @@ class PlaceForm
             ->components([
 
                 TextInput::make('place_name')
-                    ->label('Place Name')
-                    ->placeholder('Enter the business or place name')
+                    ->label('ناوی شوێن')
+                    ->placeholder('ناوی کار یان شوێنەکە بنووسە')
                     ->required()
                     ->maxLength(255)
                     ->columnSpanFull(),
 
                 TextInput::make('owner_name')
-                    ->label('Owner Name')
-                    ->placeholder('Full name of the owner')
+                    ->label('ناوی خاوەن')
+                    ->placeholder('ناوی تەواوی خاوەنەکە')
                     ->required()
                     ->maxLength(255),
 
                 TextInput::make('profession')
-                    ->label('Profession / Business Type')
-                    ->placeholder('e.g., Restaurant, Retail Shop, Services')
+                    ->label('پیشە / جۆری کار')
+                    ->placeholder('بۆ نموونە: چێشتخانە، فرۆشگا، خزمەتگوزاری')
                     ->maxLength(255),
 
                 TextInput::make('primary_phone')
-                    ->label('Primary Phone')
+                    ->label('ژمارەی مۆبایلی سەرەکی')
                     ->placeholder('+964 750 123 4567')
                     ->tel()
                     ->maxLength(255),
 
                 TextInput::make('secondary_phone')
-                    ->label('Secondary Phone')
-                    ->placeholder('+964 751 987 6543')
+                    ->label('ژمارەی مۆبایلی لاوەکی')
+                    ->placeholder('+964 770 987 6543')
                     ->tel()
                     ->maxLength(255),
 
@@ -52,24 +52,24 @@ class PlaceForm
                     ->columns(4)
                     ->schema([
                         ToggleButtons::make('social_apps')
-                            ->label('Social Messaging Apps')
+                            ->label('تۆڕی پەیوەندی')
                             ->options([
-                                'whatsapp' => 'WhatsApp',
-                                'telegram' => 'Telegram',
-                                'viber' => 'Viber',
+                                'whatsapp' => 'واتساپ',
+                                'telegram' => 'تێلیگرام',
+                                'viber' => 'ڤایبەر',
                             ])
                             ->multiple()
                             ->inline()
                             ->columnSpan(2),
 
                         ToggleButtons::make('is_customer')
-                            ->label('Is Customer')
-                            ->boolean()
+                            ->label('کڕیارە؟')
+                            ->boolean('بەڵێ', 'نەخێر')
                             ->inline()
                             ->default(false),
 
                         TextInput::make('activity_percentage')
-                            ->label('Activity Level')
+                            ->label('ڕێژەی چالاکی')
                             ->placeholder('0-100')
                             ->suffix('%')
                             ->numeric()
@@ -83,40 +83,40 @@ class PlaceForm
 
 
                 Select::make('city_id')
-                    ->label('City')
+                    ->label('شار')
                     ->relationship('city', 'name')
                     ->searchable()
                     ->preload()
                     ->required()
-                    ->placeholder('Select a city')
+                    ->placeholder('شارێک هەڵبژێرە')
                     ->createOptionForm([
                         TextInput::make('name')
-                            ->label('City Name')
-                            ->placeholder('Enter city name')
+                            ->label('ناوی شار')
+                            ->placeholder('ناوی شارەکە بنووسە')
                             ->required()
                             ->maxLength(255),
                     ])
                     ->editOptionForm([
                         TextInput::make('name')
-                            ->label('City Name')
+                            ->label('ناوی شار')
                             ->required()
                             ->maxLength(255),
                     ]),
 
                 TextInput::make('gps')
-                    ->label('GPS Coordinates')
+                    ->label('GPS')
                     ->placeholder('36.1914, 44.0095')
                     ->maxLength(255),
 
                 Textarea::make('address')
-                    ->label('Full Address')
-                    ->placeholder('Street address, building number, district...')
+                    ->label('ناونیشانی تەواو')
+                    ->placeholder('ناونیشانی شەقام، ژمارەی بینا، گەڕەک...')
                     ->rows(3)
                     ->maxLength(65535)
                     ->columnSpanFull(),
 
                 FileUpload::make('image')
-                    ->label('Business Image / Logo')
+                    ->label('وێنەی کار / لۆگۆ')
                     ->image()
                     ->imageEditor()
                     ->imageEditorAspectRatios([
@@ -125,7 +125,7 @@ class PlaceForm
                         '1:1',
                     ])
                     ->maxSize(2048)
-                    ->hint('Upload a photo or logo (max 2MB)')
+                    ->hint('وێنە یان لۆگۆیەکە (زۆرترین قەبارە 2MB)')
                     ->columnSpanFull(),
             ]);
     }
