@@ -6,9 +6,15 @@ use App\Models\City;
 use App\Models\Place;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Illuminate\Support\Facades\Auth;
 
 class PlacesStatsWidget extends BaseWidget
 {
+    public static function canView(): bool
+    {
+        return Auth::user()?->role === 'admin';
+    }
+
     protected function getStats(): array
     {
         return [
