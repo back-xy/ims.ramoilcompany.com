@@ -126,8 +126,8 @@ class PlaceForm
                     ])
                     ->openable()
                     ->downloadable()
-                    ->maxSize(2048)
-                    ->hint('(زۆرترین قەبارە 2MB)')
+                    ->maxSize(4096)
+                    ->hint('(زۆرترین قەبارە 4MB)')
                     ->columnSpanFull(),
             ]);
     }
