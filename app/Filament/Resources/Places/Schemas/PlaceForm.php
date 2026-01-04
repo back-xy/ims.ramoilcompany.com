@@ -124,6 +124,8 @@ class PlaceForm
                         '4:3',
                         '1:1',
                     ])
+                    ->openable()
+                    ->downloadable()
                     ->maxSize(2048)
                     ->hint('وێنە یان لۆگۆیەکە (زۆرترین قەبارە 2MB)')
                     ->columnSpanFull(),
