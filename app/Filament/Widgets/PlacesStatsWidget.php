@@ -28,10 +28,10 @@ class PlacesStatsWidget extends BaseWidget
                 ->descriptionIcon('heroicon-m-user-group')
                 ->color('success'),
 
-            Stat::make('شارەکان', City::count())
-                ->description('ژمارەی شارە بەردەستەکان')
-                ->descriptionIcon('heroicon-m-building-office-2')
-                ->color('warning'),
+            Stat::make('نا کڕیارەکان', Place::where('is_customer', false)->count())
+                ->description('ژمارەی نا کڕیارەکان')
+                ->descriptionIcon('heroicon-m-user-group')
+                ->color('danger'),
 
             Stat::make('تێکڕای چالاکی', number_format(Place::avg('activity_percentage'), 1) . '%')
                 ->description('تێکڕای ڕێژەی چالاکی')
