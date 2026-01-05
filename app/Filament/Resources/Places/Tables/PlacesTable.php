@@ -100,6 +100,8 @@ class PlacesTable
 
                 ImageColumn::make('image')
                     ->label('وێنە')
+                    ->disk('public')
+                    ->visibility('public')
                     ->sortable(),
 
                 TextColumn::make('created_at')
