@@ -9,11 +9,13 @@ use App\Filament\Resources\Places\Schemas\PlaceForm;
 use App\Filament\Resources\Places\Tables\PlacesTable;
 use App\Models\Place;
 use BackedEnum;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class PlaceResource extends Resource
 {
@@ -39,6 +41,18 @@ class PlaceResource extends Resource
     public static function table(Table $table): Table
     {
         return PlacesTable::configure($table);
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        // If user is not admin, return empty query (hide all records)
+        if (Auth::user()->role !== 'admin') {
+            return $query->whereRaw('1 = 0');
+        }
+
+        return $query;
     }
 
     public static function getRelations(): array

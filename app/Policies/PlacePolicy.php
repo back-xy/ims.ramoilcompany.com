@@ -13,7 +13,7 @@ class PlacePolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        return true; // Allow access to resource, but list will be empty for non-admins (see PlaceResource.php)
     }
 
     /**
@@ -21,7 +21,7 @@ class PlacePolicy
      */
     public function view(User $user, Place $place): bool
     {
-        return true;
+        return $user->role === 'admin';
     }
 
     /**
@@ -29,7 +29,7 @@ class PlacePolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === 'admin';
+        return true;
     }
 
     /**
