@@ -22,9 +22,8 @@ class PlacesTable
                 TextColumn::make('id')
                     ->label('کۆد')
                     ->sortable()
-                    ->searchable()
-                    ->prefix('#')
-                    ->extraAttributes(['dir' => 'ltr']),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable(),
 
                 TextColumn::make('place_name')
                     ->label('ناوی شوێن')
@@ -104,7 +103,8 @@ class PlacesTable
                     ->label('وێنە')
                     ->disk('public')
                     ->visibility('public')
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
 
                 TextColumn::make('created_at')
                     ->label('بەرواری دروستکردن')

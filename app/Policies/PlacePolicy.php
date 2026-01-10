@@ -21,7 +21,7 @@ class PlacePolicy
      */
     public function view(User $user, Place $place): bool
     {
-        return $user->role === 'admin';
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class PlacePolicy
      */
     public function update(User $user, Place $place): bool
     {
-        return $user->role === 'admin';
+        return true;
     }
 
     /**

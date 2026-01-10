@@ -43,17 +43,18 @@ class PlaceResource extends Resource
         return PlacesTable::configure($table);
     }
 
-    public static function getEloquentQuery(): Builder
-    {
-        $query = parent::getEloquentQuery();
+    // removed for now
+    // public static function getEloquentQuery(): Builder
+    // {
+    //     $query = parent::getEloquentQuery();
 
-        // If user is not admin, return empty query (hide all records)
-        if (Auth::user()->role !== 'admin') {
-            return $query->whereRaw('1 = 0');
-        }
+    //     // If user is not admin, return empty query (hide all records)
+    //     if (Auth::user()->role !== 'admin') {
+    //         return $query->whereRaw('1 = 0');
+    //     }
 
-        return $query;
-    }
+    //     return $query;
+    // }
 
     public static function getRelations(): array
     {

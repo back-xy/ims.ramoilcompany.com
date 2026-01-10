@@ -30,7 +30,8 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE places AUTO_INCREMENT = 26000001');
+        // starts from 2 for now
+        // DB::statement('ALTER TABLE places AUTO_INCREMENT = 26000001');
     }
 
     /**
