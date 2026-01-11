@@ -44,8 +44,8 @@ class AdminPanelProvider extends PanelProvider
                     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}" />
                     <meta name="apple-mobile-web-app-title" content="ڕام ئۆیل" />
                     <link rel="manifest" href="{{ asset('images/site.webmanifest') }}" />
-                    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-                    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+                    <meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)">
+                    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
                     <meta name="apple-mobile-web-app-capable" content="yes">
                     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
                 HTML)
