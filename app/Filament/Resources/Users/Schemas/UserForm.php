@@ -42,7 +42,12 @@ class UserForm
                             ->email()
                             ->required()
                             ->maxLength(255)
-                            ->unique(ignoreRecord: true),
+                            ->unique(ignoreRecord: true)
+                            ->rule('regex:/^[a-zA-Z0-9._%+-]+@ramoilsystem\.com$/')
+                            ->helperText('ئیمەیل دەبێت لە دۆمەینی سیستەم بێت (ramoilsystem.com@)')
+                            ->validationMessages([
+                                'regex' => 'ئیمەیل دەبێت بە ramoilsystem.com@ کۆتایی بێت',
+                            ]),
 
                         TextInput::make('password')
                             ->label('وشەی نهێنی')
